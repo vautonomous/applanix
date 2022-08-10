@@ -283,7 +283,7 @@ geometry_msgs::msg::TwistWithCovarianceStamped toTwistMsg(
 
     geometry_msgs::msg::TwistWithCovarianceStamped twistMsg;
 
-    if(cos(ins_solution.attitude.heading - ins_solution.track_angle) < 0) {
+    if(cos(deg2rad(ins_solution.attitude.heading - ins_solution.track_angle)) < 0) {
         twistMsg.twist.twist.linear.x = - ins_solution.total_speed;
     }
     else {
